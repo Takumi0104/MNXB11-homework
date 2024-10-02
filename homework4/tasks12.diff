@@ -1,0 +1,107 @@
+Only in /home/takneg: .apptainer
+Only in /home/takneg: .bash_history
+diff -y /etc/skel/.bash_logout /home/takneg/.bash_logout
+# ~/.bash_logout						# ~/.bash_logout
+
+Only in /home/takneg: .bash_logout~
+diff -y /etc/skel/.bash_profile /home/takneg/.bash_profile
+# .bash_profile							# .bash_profile
+
+# Get the aliases and functions					# Get the aliases and functions
+if [ -f ~/.bashrc ]; then					if [ -f ~/.bashrc ]; then
+	. ~/.bashrc							. ~/.bashrc
+fi								fi
+
+# User specific environment and startup programs		# User specific environment and startup programs
+Only in /home/takneg: .bash_profile~
+diff -y /etc/skel/.bashrc /home/takneg/.bashrc
+# .bashrc							# .bashrc
+
+# Source global definitions					# Source global definitions
+if [ -f /etc/bashrc ]; then					if [ -f /etc/bashrc ]; then
+	. /etc/bashrc							. /etc/bashrc
+fi								fi
+
+# User specific environment					# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]		if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then								then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"			    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi								fi
+export PATH							export PATH
+
+# Uncomment the following line if you don't like systemctl's 	# Uncomment the following line if you don't like systemctl's 
+# export SYSTEMD_PAGER=						# export SYSTEMD_PAGER=
+
+# User specific aliases and functions				# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then					if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do					for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then						if [ -f "$rc" ]; then
+			. "$rc"								. "$rc"
+		fi								fi
+	done								done
+fi								fi
+
+unset rc							unset rc
+Only in /home/takneg: .bashrc~
+Only in /home/takneg: .cache
+Only in /home/takneg: .config
+diff -y /etc/skel/.emacs /home/takneg/.emacs
+;; .emacs							;; .emacs
+
+(custom-set-variables						(custom-set-variables
+ ;; uncomment to always end a file with a newline		 ;; uncomment to always end a file with a newline
+ ;'(require-final-newline t)					 ;'(require-final-newline t)
+ ;; uncomment to disable loading of "default.el" at startup	 ;; uncomment to disable loading of "default.el" at startup
+ ;'(inhibit-default-init t)					 ;'(inhibit-default-init t)
+ ;; default to unified diffs					 ;; default to unified diffs
+ '(diff-switches "-u"))						 '(diff-switches "-u"))
+
+;;; uncomment for CJK utf-8 support for non-Asian users		;;; uncomment for CJK utf-8 support for non-Asian users
+;; (require 'un-define)						;; (require 'un-define)
+Only in /home/takneg: .emacs.d
+Only in /home/takneg: .emacs~
+Only in /home/takneg: .gitconfig
+Only in /home/takneg: .kshrc
+Only in /home/takneg: .kshrc~
+Only in /home/takneg: .lesshst
+Only in /home/takneg: .local
+Only in /home/takneg: .mozilla
+Only in /home/takneg: .nv
+Only in /home/takneg: .pki
+Only in /home/takneg: .ssh
+Only in /home/takneg: .vscode
+Only in /home/takneg: .zshrc
+Only in /home/takneg: .zshrc~
+Only in /home/takneg: 4.4
+Only in /home/takneg: 4.4.sh
+Only in /home/takneg: Desktop
+Only in /home/takneg: Documents
+Only in /home/takneg: Downloads
+Only in /home/takneg: Ex.7
+Only in /home/takneg: Exercise6
+Only in /home/takneg: Music
+Only in /home/takneg: Pictures
+Only in /home/takneg: Public
+Only in /home/takneg: TOP-MNXB11
+Only in /home/takneg: TUTORIAL5
+Only in /home/takneg: Takumi
+Only in /home/takneg: Takumi-Negoro-HW5
+Only in /home/takneg: Takumi_Negoro_homework3.tgz
+Only in /home/takneg: Templates
+Only in /home/takneg: Textfile
+Only in /home/takneg: Textfile 1 Takumi Negoro.
+Only in /home/takneg: Textfile 1 Takumi Negoro.txt
+Only in /home/takneg: Videos
+Only in /home/takneg: answers
+Only in /home/takneg: ex
+Only in /home/takneg: fairytale2.md
+Only in /home/takneg: git
+Only in /home/takneg: myfirstfile,Takumi.txt
+Only in /home/takneg: myfirstfile.txt
+Only in /home/takneg: myscript
+Only in /home/takneg: myscript.sh
+Only in /home/takneg: myscript.simple
+Only in /home/takneg: simplemyscript.sh
+Only in /home/takneg: tutorial7
+Only in /home/takneg: warnings
+Only in /home/takneg: ~git
