@@ -1,0 +1,10 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+export PATH="/projects/hep/fs10/mnxb11/bin:$PATH"
+
+# User specific environment and startup programs
