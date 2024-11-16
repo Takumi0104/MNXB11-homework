@@ -1,0 +1,13 @@
+[2024-11-15T12:02:52+01:00 Cleaner]: Copying input file original_smhi-opendata_1_52230_20210906_212532.csv to original_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:04:15+01:00 Cleaner]: Copying input file original_smhi-opendata_1_52230_20210906_212532.csv to original_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:04:15+01:00 Cleaner]: Finding the first line containing 'Datum'...
+[2024-11-15T12:04:15+01:00 Cleaner]: Found line 10
+[2024-11-15T12:04:15+01:00 Cleaner]: Perform cleanup in one line, result in baredata_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:07:46+01:00 Cleaner]: Copying input file original_smhi-opendata_1_52230_20210906_212532.csv to original_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:07:46+01:00 Cleaner]: Finding the first line containing 'Datum'...
+[2024-11-15T12:07:47+01:00 Cleaner]: Found line 10
+[2024-11-15T12:07:47+01:00 Cleaner]: Perform cleanup in one line, result in baredata_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:18:06+01:00 Cleaner]: Copying input file original_smhi-opendata_1_52230_20210906_212532.csv to original_original_smhi-opendata_1_52230_20210906_212532.csv
+[2024-11-15T12:18:06+01:00 Cleaner]: Finding the first line containing 'Datum'...
+[2024-11-15T12:18:06+01:00 Cleaner]: Found line 10
+[2024-11-15T12:18:06+01:00 Cleaner]: Perform cleanup in one line, result in baredata_original_smhi-opendata_1_52230_20210906_212532.csv
