@@ -91,7 +91,7 @@ CLEANER_DATAFILE=$(basename $DATA_RESOURCE)
 
 CLEANER_ORIGINALFILENAME="original_${CLEANER_DATAFILE}"
 CLEANER_BAREDATAFILENAME="baredata_${CLEANER_DATAFILE}"
-
+FINAL_CLEANER_BAREDATAFILENAME="final_baredata_${CLEANER_DATAFILE}"
 #Analyze the input parameter and copy
 
 if [[ "x$DATA_RESOURCE" != "x" ]]; then
@@ -132,8 +132,13 @@ log "Finding the first line containing $user_input ..."
 STARTLINE=$(grep -n $user_input $CLEANER_ORIGINALFILENAME | cut -d ':' -f 1)
 
 log "Found line $STARTLINE"
-
+echo $STARTLINE
 STARTLINE=$(( $STARTLINE + 1 ))
 
 log "Perform cleanup in one line, result in $CLEANER_BAREDATAFILENAME"
-tail -n +$STARTLINE $CLEANER_ORIGINALFILENAME | cut -d';' -f 1,2,3,4,5 | sed 's/;/ /g' > $CLEANER_BAREDATAFILENAME
+
+# I WANT TO CONVERT THIS CSV FILE WHICH WE HAVE CLEANED TO ROOT FILE
+#ACCORDING TO ROOT, THERE ARE SOME RULES TO READ THIS FILE CORRECTOLY BY ROOT
+#
+tail -n +$STARTLINE $CLEANER_ORIGINALFILENAME | cut -d';' -f 1,2,3,4,5 | sed 's/,/./g' | sed 's/;/ /g' > $CLEANER_BAREDATAFILENAME
+

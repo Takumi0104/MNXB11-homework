@@ -93,7 +93,7 @@ fi
 # smhicleaner.sh generates a filename that starts with baredata_<datafilename>
 # So storing it in a variable for convenience.
 CLEANER_BAREDATAFILENAME="baredata_$FILTER_DATAFILE"
-
+CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS="final_baredata_$FILTER_DATAFILE"
 log "Begin filtering..."
 
 #the section of the choosing two columns
@@ -105,11 +105,14 @@ log "Begin filtering..."
    echo "you also have to choose another column"
    read user_input_column2
    echo " now cleaning... you chose column $user_input_column1 and column $user_input_column2"
-awk '{print $${user_input_column1}, $${user_input_column2}}' $CLEANER_BAREDATAFILENAME > $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
-cat CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
 
+# construct the data that we chose the above process by using awk command
 
+awk -v field1="$user_input_column1" -v field2="$user_input_column2" '{print $field1, $field2}' $CLEANER_BAREDATAFILENAME > $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
 
+echo "This is the list of data what you chose the two columns"
+cat $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
+echo "--------------END DATA--------------------"
 
 
 #define the two variables which does the data restriction
@@ -117,18 +120,30 @@ cat CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
 
     echo "----------------------"
     echo "--START LINE SECTION--"
-    echo "Which year do you want to start?(Format YYYY\MM\DD):"
+    echo "Which year do you want to start?(Format YYYY-MM-DD):"
     read user_input_START
     echo "You chose this : $user_input_START"
     echo "--END LINE SECTION----"
-    echo "Which year do you want to finish?(Format YYYY\MM\DD):"
-    read user_input_FINISH
+    echo "Which year do you want to finish?(Format YYYY-MM-DD):"
+    read user_input_END
+    echo "You chose this : $user_input_END"
 STARTLINE=$(grep -n $user_input_START $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS|cut -d':' -f 1) #good working
-ENDLINE=$(grep -n $user_input_FINISH $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS|cut -d ':' -f 1) #good working
 
-echo $STARTLINE
-echo $ENDLINE
+ENDLINE=$(grep -n $user_input_END $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS|cut -d ':' -f 1) #good working
 
-STARTLINE=$(($ENDLINE - $STARTLINE))
-echo "new STARTLINE is: $STARTLINE"
-head -n $ENDLINE $CLEANER_BAREDATAFILENAME |tail -n $STARTLINE > $FILTER_FILTERNAME_from1960to2020
+echo "filter system will pick up the data from line $STARTLINE
+to line $ENDLINE."
+
+FILENAME=FILTER_from"$user_input_START"_to_"$user_input_END"
+head -n $ENDLINE $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS |tail +$STARTLINE > $FILENAME
+# error log
+#1./filter.sh: line 109: $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS: ambiguous redirect
+#I didn't define the variable $CLEANER_BAREDATAFILENAME_CHOOSING_TWO_COLUMNS
+
+#2 awk: illegal field $(user_input_column2), name "field2"
+# input record number 1, file baredata_original_Jonkoping_Airport74460.csv
+# source line number 1
+#
+#3 command not found
+#line137 > bad definition of the variable
+#the difference between ",'
